@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "java"
+    id "idea"
+    id "io.freefair.lombok" version "9.4.0"
+    id "net.serenity-bdd.serenity-gradle-plugin" version "4.2.34"
+}
+
+group 'co.com.certification'
+
+java {
+    sourceCompatibility = 21
+    targetCompatibility = 21
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '5.3.10'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$serenityVersion"
+    implementation 'org.apache.logging.log4j:log4j-core:2.25.4'
+    implementation("net.serenity-bdd:serenity-ensure:4.2.0")
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.14.0'
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.2'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.2.0'
+}
+
+configurations.configureEach {
+    resolutionStrategy {
+        force "io.opentelemetry:opentelemetry-api:1.62.0"
+    }
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test {
+    useJUnitPlatform()
+
+    if (System.getProperty('environment')) {
+        systemProperty 'environment', System.getProperty('environment')
+    }
+
+    testLogging {
+        showStandardStreams = true
+        events "passed", "failed", "skipped"
+        exceptionFormat = "full"
+    }
+
+    finalizedBy 'aggregate'
+}
