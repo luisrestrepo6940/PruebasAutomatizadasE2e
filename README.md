@@ -11,12 +11,14 @@
 * [Requirements](#requirements).
 * [Recommended](#recommended).
 * [Configuration](#configuration).
+* [Executing tests](#executing-tests).
+* [Serenty reports](#serenity-reports).
 * [Troubleshooting](#troubleshooting).
 * [Maintainers](#maintainers).
 
 ### INTRODUCTION
 
-Automated E2E GUI testing project in Java for a purchase flow on the https://www.saucedemo.com/ website.
+Automated E2E GUI testing project in Java for a purchase flow on the https://www.saucedemo.com website.
 
 #### The project directory structure
 The project has build scripts for Gradle, and follows the standard directory structure used in serenity projects:
@@ -121,7 +123,7 @@ environments {
 ```
 Serenity uses WebDriverManager to download the WebDriver binaries automatically before the tests are executed.
 
-#### Executing the tests
+### EXECUTING TESTS
 To run the sample project, you can either just run the `CheckoutRunnerByProducts` test runner class, or run either `gradle test` from the command line.
 
 ##### Using test runner
@@ -135,15 +137,30 @@ To run the sample project, you can either just run the `CheckoutRunnerByProducts
 
 ![img.png](img.png)
 
-##### Generating a report with a specific browser (edege - chrome)
+##### Execution from Gradle (Gradle Tool Window) -> Execute Gradle Task with a specific browser
+Edge
 ```gradle
 ./gradlew clean test --tests "co.com.certification.practiceautomatedtesting.runners.CheckoutRunnerByProducts" -Denvironment=edge
 
 ```
+Chrome
 ```gradle
 ./gradlew clean test --tests "co.com.certification.practiceautomatedtesting.runners.CheckoutRunnerByProducts" -Denvironment=chrome
 
 ```
+![img_1.png](img_1.png)
+
+[![Go Back Badge](https://img.shields.io/badge/Back-gray?style=flat)](#content)
+
+### SERENITY REPORTS
+
+* Wait for the execution to finish and look for the Serenity Reports in target/site/serenity/index.html.
+
+* Click on the index.html file and choose the application you want to use to view it.
+
+![img_2.png](img_2.png)
+
+![img_4.png](img_4.png)
 
 [![Go Back Badge](https://img.shields.io/badge/Back-gray?style=flat)](#content)
 

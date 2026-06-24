@@ -1,0 +1,21 @@
+Conclusiones del ejercicio
+
+1. Las pruebas sobre SauceDemo.com utilizando el standard_user generan un contexto apropiado para aprender y practicar procesos de pruebas automatizadas. Al ser un entorno controlado, los resultados de calidad nos permiten validar tanto la funcionalidad como la robustez de los scripts de pruebas automatizadas.
+
+2. La autenticación con standard_user es altamente predecible y estable. Es ideal para validar que el framework (Serenity) inyecte correctamente las credenciales y maneje la sesión sin bloqueos inesperados.
+
+3. El flujo desde la selección de productos hasta la finalización de la compra (checkout) en general es consistente. Las pruebas confirman que los elementos (botones, campos de texto, etc) mantienen identificadores estables (atributo de datos o data attribute) que agregan estabilidad al mapeo de elementos en los procesos de pruebas, lo cual es vital para reducir la fragilidad de los selectores en las pruebas automatizadas.
+
+4. Aunque el sitio web es funcional, es una excelente plataforma para probar casos negativos. Por ejemplo, intentar realizar la compra con campos vacíos o datos inválidos revela cómo el sitio maneja (o a veces ignora) las validaciones del lado del cliente.
+
+5. La estructura del sitio se presta perfectamente para aplicar screenplay como arquitectura general del proyecto y Page Object Model (POM) como capa de definición de interfaces de usuario, es decir; el lugar donde se mapean los elementos del sitio web, haciendo que la consistencia de los elementos permita que las clases definidas sean reutilizables y de simple mantenibilidad.
+
+Hallazgos
+
+1. En el home del aplicativo, al ingresar un usuario y contraseña no validos en los campos destinados, se muestra una notificación (error-message-container) que no permite visualizar correctamente el mensaje 'Epic sadface: Username and password do not match any user in this service'.
+
+2. No se hace validación de campos para los input First Name y Last Name. Es decir, que se permite ingresar números, letras y/o caracteres especiales.
+
+3. Al remover los productos del carrito de compras y dejarlo vacío en la sección Your Cart, se permite hacer clic en el botón Checkout y avanzar a las secciones siguientes ('Checkout: Your Information', 'Checkout: Overview' y 'Checkout: Complete!') hasta finalizar o completar la compra con cero productos y se muestra el mensaje de exito.
+
+4. Cuando se tienen productos adicionados al carrro de compras y se usa la opción de menu (bm-burger-button) 'Reset App State', se vacia el carrito de compras pero el boton 'Remove' de los productos no vuelve a su estado 'Add to cart'. 
