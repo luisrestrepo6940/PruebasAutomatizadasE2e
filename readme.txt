@@ -5,11 +5,17 @@ Paso a paso para su clonado y configuración en local
 Clone el repositorio usando la siguiente instrucción en el destino deseado de su equipo de computo: git clone https://github.com/luisrestrepo6940/PruebasAutomatizadasE2e.git
 
 1. Proceda a abrir el repositorio con IDE preferido. Se recomienda usar IntelliJ IDEA.
-2. Diríjase y elija en el menú Files -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Gradle JVM: Project SDK correto-21. Para aplicar la configuración presione el botón Apply.
-3. Diríjase y elija en el menú Files -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Project bytecode versión: 21. Para aplicar la configuración presione el botón Apply.
-4. Diríjase y elija en el menú Files -> Project Structure -> Project Settings -> Project -> SDK: corretto-21 Amazon Corretto versión 21...Para aplicar la configuración presione el botón Apply.
-5. Diríjase y elija en el menú Files -> Project Structure -> Project Settings -> Project -> Languaje level: SDK default. Para aplicar la configuración presione el botón Apply.
-6. Diríjase y elija en el menú Files -> Project Structure -> Platform Settings -> + (adicionar) -> corretto-21. Evidenciar que Name: corretto-21 y que la ruta  incluida en JDK home path: ...\.jdks\corretto-21... contenga la versión 21 de corretto.Para aplicar la configuración presione el botón Apply.
+2. Diríjase y elija en el menú Files -> Settings -> Build, Execution, Deployment ->:
+
+ * Build Tools -> Gradle -> Gradle JVM: Project SDK correto-21. Para aplicar la configuración presione el botón Apply.
+ * Compiler -> Java Compiler -> Project bytecode versión: 21. Para aplicar la configuración presione el botón Apply.
+
+3. Diríjase y elija en el menú Files -> Project Structure -> Project Settings -> Project ->:
+
+   * SDK: corretto-21 Amazon Corretto versión 21...Para aplicar la configuración presione el botón Apply.
+   * Languaje level: SDK default. Para aplicar la configuración presione el botón Apply.
+
+4. Diríjase y elija en el menú Files -> Project Structure -> Platform Settings -> + (adicionar) -> corretto-21. Evidenciar que Name: corretto-21 y que la ruta  incluida en JDK home path: ...\.jdks\corretto-21... contenga la versión 21 de corretto. Para aplicar la configuración presione el botón Apply.
 
 Paso a paso para su ejecución en local
 
